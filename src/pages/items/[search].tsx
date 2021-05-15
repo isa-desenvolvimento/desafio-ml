@@ -1,6 +1,7 @@
 import Card from '@/components/Card';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { graphqlClient } from '@/pages/api/graphql';
 
 const Item = dynamic(() => import('@/components/Item'));
 type Address = {
@@ -41,12 +42,31 @@ export default function List({ items }: IProps) {
 
 export const getServerSideProps = async (ctx) => {
   const { search } = await ctx.params;
-  const data = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${search}`);
-  const { results } = await data.json();
+
+  const query = `  
+    query{
+      results(query: "${search}") {
+        id
+        title
+        price 
+        picture
+        condition
+        shipping{
+          free_shipping
+        }
+        thumbnail
+        address{
+          city_name
+        }  
+      }
+    }
+  `;
+
+  const { data } = await graphqlClient.executeOperation({ query });
 
   return {
     props: {
-      items: results,
+      items: data.results,
     },
   };
 };

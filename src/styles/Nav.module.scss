@@ -43,6 +43,10 @@
       vertical-align: middle;
       border-radius: 3px;
       display: flex;
+
+      button {
+        cursor: pointer;
+      }
     }
   
     @media (min-width: 1920px) {
