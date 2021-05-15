@@ -1,0 +1,55 @@
+.container {
+    width: 100%;
+    background: var(--middle-yellow);
+    height: var(--height-header);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logo {
+      background-image: url('/assets/Logo_ML.png');
+      background-position: center; 
+      background-repeat: no-repeat;
+      height: 100%;
+      padding: 2rem;
+    }
+
+    input[type="text"] {
+      background-color: none;
+      border: none;
+      padding-right: 10px;
+      padding-left: 10px;
+      width: 100%;
+    }
+
+    .search{
+      height: 100%; 
+      border-radius: 0px 3px 3px 0px;
+      background-color: var(--cultured);
+      background-image: url('/assets/ic_Search.png');
+      background-position: center; 
+      background-repeat: no-repeat;
+      padding: 20px;
+      border: none;
+      margin-left: auto;
+    }
+
+    .inputContainer{
+      margin-left: 20px;
+      width: 80%;
+      background: var(--white);
+      align-items: center;
+      vertical-align: middle;
+      border-radius: 3px;
+      display: flex;
+    }
+  
+    @media (min-width: 1920px) {
+      .search{
+        background-image: url('/assets/ic_Search@2x.png');
+      }
+      .logo {
+        background-image: url('/assets/Logo_ML@2x.png');
+      }
+    }
+}

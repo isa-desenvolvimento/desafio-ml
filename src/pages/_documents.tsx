@@ -7,10 +7,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="pt">
-        <Head>
-          <meta charSet="utf-8" />
-          <link rel="icon" href="https://http2.mlstatic.com/frontend-assets/ui-navigation/5.14.3/mercadolibre/favicon.svg" />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />
