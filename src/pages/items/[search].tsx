@@ -24,11 +24,7 @@ type IProps = {
   items: Array<ItemsProps>
 }
 
-export default function List({
-  items = [{
-    id: '1', title: 'title', thumbnail: '/assets/Logo_ML.png', price: 123, address: { city_name: 'sasdads' }, shipping: { free_shipping: false },
-  }],
-}: IProps) {
+export default function List({ items }: IProps) {
   return (
     <Card>
       {
@@ -42,3 +38,15 @@ export default function List({
     </Card>
   );
 }
+
+export const getServerSideProps = async (ctx) => {
+  const { search } = await ctx.params;
+  const data = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${search}`);
+  const { results } = await data.json();
+
+  return {
+    props: {
+      items: results,
+    },
+  };
+};
