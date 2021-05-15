@@ -43,3 +43,29 @@ a {
 :focus-visible {
   outline: none;
 }
+
+ .breadcrumb{
+    margin: 1rem auto;
+
+    li{
+      display: inline-flex;
+      gap: 0.5rem;
+      margin-right: 0.5rem;
+      align-items: center;
+
+      a{
+        text-transform: lowercase;
+        color: var(--spanish-gray);
+      }
+
+      &:after {
+        content: ">";
+        font-size: 10px;
+        color: var(--spanish-gray);
+      }
+
+      &:last-child::after {
+        content: "";
+      }
+    }
+  }

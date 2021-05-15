@@ -2769,6 +2769,11 @@ next@10.2.0:
     vm-browserify "1.1.2"
     watchpack "2.1.1"
 
+nextjs-breadcrumbs@^0.9.9:
+  version "0.9.9"
+  resolved "https://registry.yarnpkg.com/nextjs-breadcrumbs/-/nextjs-breadcrumbs-0.9.9.tgz#60d9110899dc22ce9a5df2e0bb8955d41c089a31"
+  integrity sha512-hbCrPneMAxAm3IU5NNDFqoPP6pthvInShu5bidnEyMLIC+HawYo0eW+s9CDSoJ7fCR7hKv+vnQuLlgmVBe5UqQ==
+
 node-fetch@2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
