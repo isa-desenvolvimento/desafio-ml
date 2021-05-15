@@ -32,7 +32,12 @@ export default function ItemList({
         <Image width="180" height="180" src={thumbnail} alt={title} objectFit="contain" />
       </div>
       <div className={styles.containerDetails}>
-        <h2>{formatPrice(price)}</h2>
+        <div className={styles.priceContainer}>
+          <h2>
+            {formatPrice(price)}
+          </h2>
+          {shipping && <div className={styles.shipping} />}
+        </div>
         <span>{title}</span>
       </div>
       <span className={styles.address}>{address?.city_name}</span>
