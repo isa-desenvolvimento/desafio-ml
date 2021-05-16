@@ -10,4 +10,4 @@ export const searchItems = async (search = 'query') => {
   return data.results;
 };
 
-export const searchItemID = async () => {};
+export const searchItemID = async () => { };

@@ -17,7 +17,7 @@ const Nav = () => {
         <div className={styles.logo} />
       </Link>
       <form className={styles.inputContainer} onSubmit={handleSubmit}>
-        <input type="text" placeholder="Nunca dejes de buscar" />
+        <input type="text" placeholder="Search" />
         <button type="submit" className={styles.search}> </button>
       </form>
     </nav>

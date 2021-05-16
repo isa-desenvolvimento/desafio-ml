@@ -29,13 +29,13 @@ export default function List({ items }: IProps) {
   return (
     <Card>
       {
-          items && (items.map((item) => (
-            <Link href={`/details/${item.id}`} key={item.id}>
-              <Item {...item} />
-            </Link>
-          ))
-          )
-        }
+        items && (items.map((item) => (
+          <Link href={`/details/${item.id}`} key={item.id}>
+            <Item {...item} />
+          </Link>
+        ))
+        )
+      }
     </Card>
   );
 }
