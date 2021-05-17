@@ -1,44 +1,9 @@
 .container {
+  height: auto;
+  width: auto;
   display: flex;
-  width: 100%;
-  border-bottom: 1px solid var(--cultured);
-
-  .imageContainer {
-    border-radius: 4px;
-    margin: 1rem;
-    width: 11.25rem;
-    height: 11.25rem;
-  }
-
-  .containerDetails {
-    width: 70%;
-    margin-top: 2rem;
-  }
-
-  .address {
-    margin-top: 2rem;
-    margin-right: 0.5rem;
-    margin-left: 'auto';
-    font-size: 0.75rem;
-    text-overflow: ellipsis;
-    color: var(--spanish-gray);
-  }
-
-  .priceContainer {
-    display: flex;
-  }
-
-  .shipping {
-    background-image: url('/assets/ic_shipping.png');
-    background-position: center; 
-    background-repeat: no-repeat;
-    height: 100%;
-    padding: 1rem;
-  }
-
-  @media (min-width: 1920px) {
-    .shipping {
-      background-image: url('/assets/ic_shipping@2x.png');
-    }
-  }
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: aquamarine;
 }

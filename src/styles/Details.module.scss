@@ -1,57 +1,73 @@
-.containerDetails {
-  .container {
-    display: column;
-    padding: 2rem;
-
-    .product {
-      display: flex;
-      gap: 2rem;
-
-      .imageContainer {
-        flex: 0.6;
-        border-radius: 4px;
-        width: 42, 5rem;
-        height: 42, 5rem;
-      }
-
-      .price {
-
-        h3 {
-          color: var(--dim-gray);
-          margin-top: 2rem;
-          margin-bottom: 1rem;
-          font-size: 0.75rem;
-        }
-
-        h1 {
-          margin-bottom: 2rem;
-
-        }
-
-        button {
-          padding: 0.5rem;
-          width: 100%;
-          background: var(--azure);
-          color: var(--white);
-          border-radius: 4px;
-          border: none;
-
-          &:hover {
-            filter: brightness(0.9);
-          }
-        }
-      }
-    }
-
-    .description {
-      flex: 1;
-      margin-top: 1rem;
-      font-size: 1.75rem;
-
-      .text {
-        color: var(--spanish-gray);
-        font-size: 1rem;
-      }
-    }
+@media screen and (max-width: 600px) {
+  .one {
+    float: none;
+    margin-right: 0;
+    width: 100%;
+    border: 0;
+    max-height: 25%;
   }
+
+  .two {
+    float: none;
+    margin-right: 0;
+    width: auto;
+    border: 0;
+  }
+}
+
+.one {
+  background-color: gray;
+  float: left;
+  min-width: 180px;
+  height: 100%;
+}
+
+.two {
+  background-color: rgb(13, 14, 13);
+  height: 100%;
+}
+
+
+
+.title {
+  font-size: medium;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 10px;
+  color: rgb(238, 234, 27);
+  margin-top: 5%;
+  margin-bottom: 15px
+}
+
+.description {
+  font-size: medium;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.block {
+  //display: table-cell;
+  display: table-row;
+  padding-left: 2%;
+}
+
+.a {
+  display: table-row;
+}
+
+.b {
+  display: table-row;
+}
+
+.wrapper {
+  overflow: hidden;
+  background-color: aquamarine;
+  display: inline-block;
+  justify-content: center;
+  height: 80vh;
+  max-width: 70%;
+}
+
+.wrapper div {
+  //padding: 5px;  
 }
