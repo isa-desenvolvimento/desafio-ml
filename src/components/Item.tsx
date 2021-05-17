@@ -1,13 +1,17 @@
 import Image from 'next/image';
-import formatPrice from '@/utils/formatPrice';
 import styles from '@/styles/Item.module.scss';
 
-type Address = {
-  'city_name': string;
+type location = {
+  'name': string;
 }
 
-type Shipping = {
-  'free_shipping': boolean;
+type origin = {
+  'name': string;
+}
+
+type episode = {
+  'episode': number;
+  'air_date': string
 }
 
 type ItemsProps = {
@@ -15,13 +19,14 @@ type ItemsProps = {
   title: string;
   thumbnail: string;
   price: number;
-  address: Address;
-  shipping: Shipping;
+  location: location;
+  origin: origin;
+  episode: episode;
 }
 
 export default function ItemList({
-  thumbnail, address, price, id, title, shipping,
-} : ItemsProps) {
+  id, thumbnail, location, origin, episode,
+}: ItemsProps) {
   if (!thumbnail) {
     return null;
   }
@@ -29,18 +34,15 @@ export default function ItemList({
   return (
     <div className={styles.container} id={id}>
       <div className={styles.imageContainer}>
-        <Image width="180" height="180" src={thumbnail} alt={title} objectFit="contain" />
+        <Image width="180" height="180" src={thumbnail} objectFit="contain" />
       </div>
       <div className={styles.containerDetails}>
         <div className={styles.priceContainer}>
           <h2>
-            {formatPrice(price)}
+            {location} <br /> {origin} <br /> {episode} <br />
           </h2>
-          {shipping && <div className={styles.shipping} />}
         </div>
-        <span>{title}</span>
       </div>
-      <span className={styles.address}>{address?.city_name}</span>
     </div>
   );
 }

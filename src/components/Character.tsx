@@ -1,23 +1,21 @@
 import React from "react";
-import Image from "next/image";
-import { Heading, Text, SimpleGrid } from "@chakra-ui/react";
+import Card from '@/components/Card';
+import styles from '@/styles/Card.module.scss';
 
 const Character = ({ characters }) => {
     return (
-        <SimpleGrid columns={[1, 2, 3]} spacing="40px">
+        <Card>
             {characters.map((character) => {
                 return (
-                    <div key={character.id}>
-                        <Image src={character.image} width={300} height={300} />
-                        <Heading as="h4" textAlign="center" size="md">
-                            {character.name}
-                        </Heading>
-                        <Text align="center">Origin: {character.origin.name}</Text>
-                        <Text align="center">Location: {character.location.name}</Text>
+                    <div id={character.id} className={styles.box}>
+                        <img src={character.image} />
+                        <div className={styles.bgtext}>
+                            <label>{character.name}</label>
+                        </div>
                     </div>
                 );
             })}
-        </SimpleGrid>
+        </Card>
     );
 };
 

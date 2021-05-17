@@ -13,7 +13,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 
-  background-color: aqua;
+  background-color: rgb(15, 15, 15);
 }
 
 
@@ -28,15 +28,15 @@ a {
   box-sizing: border-box;
 }
 
-// :root {
-//   --white: #fff;
-//   --middle-yellow: #FFE600;
-//   --cultured: #EEEEEE;
-//   --spanish-gray: #999999;
-//   --dim-gray: #666666;
-//   --jet: #333333;
-//   --azure: #3483FA;
-// }
+:root {
+  --white: #fff;
+  --middle-yellow: #FFE600;
+  --cultured: #EEEEEE;
+  --spanish-gray: #999999;
+  --dim-gray: #666666;
+  --jet: #333333;
+  --azure: #3483FA;
+}
 
 //regra de acessibilidade
 @media (min-width: 1080px) {

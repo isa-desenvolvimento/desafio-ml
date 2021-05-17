@@ -1,15 +1,22 @@
 import Card from '@/components/Card';
-import Link from 'next/link';
+import Link from '@/components/Link';
 import dynamic from 'next/dynamic';
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import { graphqlClient } from '@/pages/api/graphql';
 
 const Item = dynamic(() => import('@/components/Item'));
-type Address = {
-  'city_name': string;
+
+type location = {
+  'name': string;
 }
 
-type Shipping = {
-  'free_shipping': boolean;
+type origin = {
+  'name': string;
+}
+
+type episode = {
+  'episode': number;
+  'air_date': string
 }
 
 type ItemsProps = {
@@ -17,8 +24,9 @@ type ItemsProps = {
   title: string;
   thumbnail: string;
   price: number;
-  address: Address;
-  shipping: Shipping;
+  location: location;
+  origin: origin;
+  episode: episode;
 }
 
 type IProps = {
@@ -30,7 +38,7 @@ export default function List({ items }: IProps) {
     <Card>
       {
         items && (items.map((item) => (
-          <Link href={`/details/${item.id}`} key={item.id}>
+          <Link href={`/api/character/${item.id}`} key={item.id}>
             <Item {...item} />
           </Link>
         ))
@@ -40,33 +48,45 @@ export default function List({ items }: IProps) {
   );
 }
 
-export const getServerSideProps = async (ctx) => {
-  const { search } = await ctx.params;
-
-  const query = `  
-    query{
-      results(query: "${search}") {
-        id
-        title
-        price 
-        picture
-        condition
-        shipping{
-          free_shipping
+export async function getStaticProps() {
+  const client = new ApolloClient({
+    uri: "https://rickandmortyapi.com/graphql/",
+    cache: new InMemoryCache(),
+  });
+  const { data } = await client.query({
+    query: gql`
+      query {
+        characters(page: 1) {
+          info {
+            count
+            pages
+          }
+          results {
+            name
+            id
+            location {
+              name
+              id
+            }
+            image
+            origin {
+              name
+              id
+            }
+            episode {
+              id
+              episode
+              air_date
+            }
+          }
         }
-        thumbnail
-        address{
-          city_name
-        }  
       }
-    }
-  `;
-
-  const { data } = await graphqlClient.executeOperation({ query });
+    `,
+  });
 
   return {
     props: {
-      items: data.results,
+      characters: data.characters.results,
     },
   };
 };

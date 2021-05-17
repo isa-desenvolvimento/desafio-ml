@@ -1,6 +1,11 @@
 import styles from '@/styles/Card.module.scss';
+import { ReactNode } from 'react';
 
-export default function Card({ children }) {
+type ICardProps = {
+  children: ReactNode
+}
+
+export default function Card({ children }: ICardProps) {
   return (
     <div className={styles.cardContainer}>
       {children}
