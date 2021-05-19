@@ -1,7 +1,7 @@
 import Card from '@/components/Card';
 import Link from '@/components/Link';
 import dynamic from 'next/dynamic';
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
+//import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 //import { graphqlClient } from '@/pages/api/graphql';
 
 const Item = dynamic(() => import('@/components/Item'));
