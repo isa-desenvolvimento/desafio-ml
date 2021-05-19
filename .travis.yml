@@ -6,3 +6,4 @@ branches:
   - B-01
 script:
 - yarn install
+- yarn build
