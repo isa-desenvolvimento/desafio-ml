@@ -5,5 +5,5 @@ branches:
   only:
   - B-01
 script:
-- yarn
+- yarn --frozen-lockfile
 - yarn build
