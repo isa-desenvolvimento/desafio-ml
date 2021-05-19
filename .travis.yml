@@ -5,6 +5,5 @@ branches:
   only:
   - B-01
 script:
-- yarn
-- yarn lint
+- yarn install
 - yarn build
