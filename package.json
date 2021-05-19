@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p $PORT",
-    "test": "jest"
+    "test": "jest",
+    "heroku-postbuild": "yarn run"
   },
   "dependencies": {
     "@apollo/client": "^3.3.3",
@@ -68,5 +69,6 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog-emoji"
     }
-  }
+  },
+  "cacheDirectories": [".next/cache"]
 }
