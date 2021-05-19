@@ -1,26 +1,19 @@
 import styles from '@/styles/Layout.module.scss';
 import React from 'react';
-import { Breadcrumbs } from 'nextjs-breadcrumbs';
+import { ChildrenProps } from '@/types/components/ChildrenProps';
+import TranslationProvider from '@/locales/TranslationProvider';
 import Nav from './Nav';
 
-type LayoutProps = {
-  children: React.ReactNode;
-}
 
-const Layout = ({ children }: LayoutProps) => {
-  const breadcrumbs = Breadcrumbs();
-
+export default function Layout({ children }: ChildrenProps) {
   return (
-    <>
+    <TranslationProvider>
       <Nav />
       <div className={styles.container}>
         <main className={styles.main}>
-          {breadcrumbs}
           {children}
         </main>
       </div>
-    </>
+    </TranslationProvider>
   );
-};
-
-export default Layout;
+}
