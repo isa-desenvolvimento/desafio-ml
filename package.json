@@ -7,7 +7,7 @@
     "build": "next build",
     "test": "jest",
     "start": "next start -p $PORT",
-    "heroku-postbuild": "yarn run"
+    "heroku-postbuild": "npm run build"
   },
   "engines": {
     "node": "12.13.1"
